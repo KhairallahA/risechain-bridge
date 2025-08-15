@@ -1,103 +1,103 @@
-import Image from "next/image";
+'use client'
+
+import { WalletConnect } from '../components/WalletConnect'
+import { NetworkSwitcher } from '../components/NetworkSwitcher'
+import { BalanceDisplay } from '../components/BalanceDisplay'
+import { BridgeForm } from '../components/BridgeForm'
+import { TransactionHistory } from '../components/TransactionHistory'
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Ethereum ↔ RISE Bridge
+              </h1>
+              <p className="text-sm text-gray-600">
+                Bridge ETH from Ethereum Sepolia to RISE Sepolia
+              </p>
+            </div>
+            <WalletConnect />
+          </div>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Column */}
+          <div className="space-y-6">
+            {/* Network Switcher */}
+            <div className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm">
+              <h2 className="text-lg font-semibold mb-4">Network</h2>
+              <NetworkSwitcher />
+            </div>
+
+            {/* Balance Display */}
+            <BalanceDisplay />
+
+            {/* Bridge Form */}
+            <BridgeForm />
+          </div>
+
+          {/* Right Column */}
+          <div className="space-y-6">
+            {/* Transaction History */}
+            <TransactionHistory />
+
+            {/* Info Card */}
+            <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">
+                How it works
+              </h3>
+              <ul className="text-sm text-blue-800 space-y-2">
+                <li>• Connect your wallet to get started</li>
+                <li>• Make sure you're on Ethereum Sepolia network</li>
+                <li>• Enter the amount of ETH you want to bridge</li>
+                <li>• Confirm the transaction in your wallet</li>
+                <li>• Your ETH will appear on RISE Sepolia after confirmation</li>
+              </ul>
+            </div>
+
+            {/* Contract Info */}
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Contract Information
+              </h3>
+              <div className="text-sm text-gray-600 space-y-1">
+                <div>
+                  <span className="font-medium">Bridge Contract:</span>
+                  <div className="font-mono text-xs break-all">
+                    0xE3B8f495De4e43C7C911343A53bb19Fc3e3B2783
+                  </div>
+                </div>
+                <div>
+                  <span className="font-medium">Ethereum Sepolia:</span> Chain ID 11155111
+                </div>
+                <div>
+                  <span className="font-medium">RISE Sepolia:</span> Chain ID 11155931
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-white border-t mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="text-center text-sm text-gray-500">
+            <p>Ethereum to RISE Bridge - Testnet Only</p>
+            <p className="mt-1">
+              Make sure you're using testnet tokens only. Never use mainnet funds.
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
