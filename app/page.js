@@ -56,7 +56,7 @@ export default function Home() {
               </h3>
               <ul className="text-sm text-blue-800 space-y-2">
                 <li>• Connect your wallet to get started</li>
-                <li>• Make sure you're on Ethereum Sepolia network</li>
+                <li>• Make sure you&apos;re on Ethereum Sepolia network</li>
                 <li>• Enter the amount of ETH you want to bridge</li>
                 <li>• Confirm the transaction in your wallet</li>
                 <li>• Your ETH will appear on RISE Sepolia after confirmation</li>
@@ -93,7 +93,7 @@ export default function Home() {
           <div className="text-center text-sm text-gray-500">
             <p>Ethereum to RISE Bridge - Testnet Only</p>
             <p className="mt-1">
-              Make sure you're using testnet tokens only. Never use mainnet funds.
+              Make sure you&apos;re using testnet tokens only. Never use mainnet funds.
             </p>
           </div>
         </div>
